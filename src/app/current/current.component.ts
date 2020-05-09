@@ -15,9 +15,8 @@ export class CurrentComponent implements OnInit {
 
   myWeather:CurrentWeather;
 
-  constructor(
-    private weatherservice:WeatherService,
-    ) { }
+
+  constructor(private weatherservice:WeatherService) { }
 
 
   getCurrentData(city: string = 'New York') {
