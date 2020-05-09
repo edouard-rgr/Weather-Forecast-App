@@ -7,5 +7,8 @@
   <h4>Max: {{myWeather?.main.temp_min}}&deg;</h4>
   <h4>Min: {{myWeather?.main.temp_max}}&deg;</h4>
   <h3>{{myWeather?.weather[0].description}}</h3>
-
 </div>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+  <input type="text" ngModel #city="ngModel" name="city" id="city" placeholder="Enter a city name">
+  <button name="button" type ="submit" >Enter</button>
+</form>

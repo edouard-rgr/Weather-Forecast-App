@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import 'rxjs/Rx';
+
 
 import { WeatherService } from '../weather.service';
 import { CurrentWeather } from '../current-weather';
@@ -28,6 +31,17 @@ export class ForecastComponent implements OnInit {
       );
   }
 
+  onSubmit(weatherForm:NgForm){
+    this.weatherservice.getForecastWeather(weatherForm.value.city).subscribe
+    (data => {
+      this.myWeather = data
+      console.log(data)
+    },
+    (error) =>{
+      'error'
+    }
+    );
+  }
 
 
   ngOnInit(): void {
