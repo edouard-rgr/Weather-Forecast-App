@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 import 'rxjs/Rx';
 
 
@@ -32,10 +32,16 @@ export class CurrentComponent implements OnInit {
       );
   }
 
-  onSubmit(city :string){
-    console.log(city)
-
-
+  onSubmit(weatherForm:NgForm){
+    this.weatherservice.getCurrentWeather(weatherForm.value.city).subscribe
+    (data => {
+      this.myWeather = data
+      console.log(data)
+    },
+    (error) =>{
+      'error'
+    }
+    );
   }
 
 
