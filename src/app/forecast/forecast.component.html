@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>{{myWeather?.name}}</h1>
+  <h2>{{myWeather?.main.temp}}&deg;</h2>
+  <div class="img">
+    <img src="https://openweathermap.org/img/w/{{myWeather?.weather[0].icon}}.png">
+  </div>
+  <h4>Max: {{myWeather?.main.temp_min}}&deg;</h4>
+  <h4>Min: {{myWeather?.main.temp_max}}&deg;</h4>
+  <h3>{{myWeather?.weather[0].description}}</h3>
+
+</div>
