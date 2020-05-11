@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import 'rxjs/Rx';
 
 
 import { WeatherService } from '../weather.service';
-import { CurrentWeather } from '../current-weather';
+
+import { Forecast } from '../forecast';
 
 @Component({
   selector: 'app-forecast',
@@ -13,12 +14,15 @@ import { CurrentWeather } from '../current-weather';
 })
 export class ForecastComponent implements OnInit {
 
-  myWeather:CurrentWeather;
+  forecast:Forecast[] = [];
+  forecastForm: FormGroup;
 
 
   constructor(private weatherservice:WeatherService) { }
 
 
+
+/*
   getForecastData(city: string = 'New York') {
     this.weatherservice.getForecastWeather(city).subscribe
       (data => {
@@ -30,23 +34,41 @@ export class ForecastComponent implements OnInit {
       }
       );
   }
+*/
 
-  onSubmit(weatherForm:NgForm){
-    this.weatherservice.getForecastWeather(weatherForm.value.city).subscribe
+onSubmit(){
+  this.weatherservice.getForecastWeather(this.forecastForm.value.forecastCity).subscribe
     (data => {
-      this.myWeather = data
-      console.log(data)
+      console.log(data);
+      for(let i=0; i<data.list.length;i= i+8){
+        const forecastWeather = new Forecast(data.city.name,
+                                              data.list[i].weather[0].description,
+                                              data.list[i].main.temp,
+                                              data.list[i].dt_txt,
+                                              data.list[i].weather[0].icon);
+        // console.log(forecastWeather);
+        this.forecast.push(forecastWeather);
+      }
+      console.log(this.forecast);
+      return this.forecast;
     },
     (error) =>{
       'error'
     }
-    );
-  }
+  );
+
+
+}
 
 
   ngOnInit(): void {
-    this.getForecastData()
+    this.forecastForm = new FormGroup({
+      forecastCity: new FormControl('Seattle')
+    })
+    console.log(this.forecastForm);
 
   }
+
+
 
 }

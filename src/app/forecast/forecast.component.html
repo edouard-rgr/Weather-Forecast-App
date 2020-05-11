@@ -1,14 +1,15 @@
-<div class="container">
-  <h1>{{myWeather?.name}}</h1>
-  <h2>{{myWeather?.main.temp}}&deg;</h2>
-  <div class="img">
-    <img src="https://openweathermap.org/img/w/{{myWeather?.weather[0].icon}}.png">
+
+<div class="wrapper">
+  <div class="forecast" *ngFor="let dayWeather of forecast">
+    <div class="day">
+      <h2 class="date">{{dayWeather.date | date: 'MMMMd'}}</h2>
+    <img src="https://openweathermap.org/img/w/{{dayWeather?.img}}.png">
+    <h2 class="description">{{dayWeather.description}}</h2>
+    <h3 class="tempM">{{dayWeather.temp}}&deg;</h3>
   </div>
-  <h4>Max: {{myWeather?.main.temp_min}}&deg;</h4>
-  <h4>Min: {{myWeather?.main.temp_max}}&deg;</h4>
-  <h3>{{myWeather?.weather[0].description}}</h3>
 </div>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm" >
-  <input type="text" ngModel #city="ngModel" name="city" id="city" placeholder="Enter a city name">
+</div>
+<form [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
+  <input type="text"  name="city" id="city" placeholder="Enter a city name" formControlName="forecastCity">
   <button name="button" type ="submit" >Enter</button>
 </form>

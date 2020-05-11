@@ -7,6 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 
 
 import { CurrentWeather } from './current-weather';
+import { Forecast } from './forecast';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,8 @@ export class WeatherService {
   getCurrentWeather(city: string) : Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(this.API_URL+'/weather?q=' + city +'&appid=' + this.API_KEY + '&units=imperial')}
 
-  getForecastWeather(city: string) : Observable<CurrentWeather> {
-    return this.http.get<CurrentWeather>(this.API_URL+'/forecast?q=' + city +'&appid=' + this.API_KEY + '&units=imperial')}
+  getForecastWeather(city: string) : Observable<Forecast> {
+    return this.http.get<Forecast>(this.API_URL+'/forecast?q=' + city +'&appid=' + this.API_KEY + '&units=imperial')}
 
 }
 
