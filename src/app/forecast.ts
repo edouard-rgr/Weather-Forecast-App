@@ -2,14 +2,18 @@ export class Forecast {
 
   constructor(
     public forecast_city:string,
-    public forecast_description:string,
-    public forecast_temp:number,
+    public forecast_country:string,
     public forecast_date:string,
-    public forecast_icon:string){}
+    public forecast_temp:number,
+    public forecast_temp_min:number,
+    public forecast_temp_max:number,
+    public forecast_icon:string,
+    public forecast_description:string,){}
 
 
   city:{
-    name: string
+    name: string;
+    country: string;
   }
 
   list:[{
@@ -19,7 +23,7 @@ export class Forecast {
     main:{
       temp: number;
       temp_min: number;
-      temp_max: number
+      temp_max: number;
     };
 
     weather:[{

@@ -27,10 +27,13 @@ onSubmit(){
       for(let i=0; i<data.list.length;i= i+8){
         this.forecastList = new Forecast(
           data.city.name,
-          data.list[i].weather[0].description,
-          data.list[i].main.temp,
+          data.city.country,
           data.list[i].dt_txt,
-          data.list[i].weather[0].icon)
+          data.list[i].main.temp,
+          data.list[i].main.temp_min,
+          data.list[i].main.temp_max,
+          data.list[i].weather[0].icon,
+          data.list[i].weather[0].description)
 
         console.log(data);
         //console.log(this.forecastList);
@@ -67,12 +70,14 @@ onSubmit(){
 /*
 
     public cityName:string;
+    public countryName:string;
     public description:string;
     public temp:number;
     public date:string;
     public img:string;
 
     this.cityName = data.city.name;
+    this.countryName = data.city.country:
     this.description = data.list[i].weather[0].description;
     this.temp = data.list[i].main.temp;
     this.date = data.list[i].dt_txt;
