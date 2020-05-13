@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="forecast" *ngFor="let dayWeather of forecast">
+    <h1 class="city">{{dayWeather.cityName}}</h1>
     <div class="day">
       <h2 class="date">{{dayWeather.date | date: 'MMMMd'}}</h2>
     <img src="https://openweathermap.org/img/w/{{dayWeather?.img}}.png">

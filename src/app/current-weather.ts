@@ -1,6 +1,7 @@
 export class CurrentWeather {
 
-  constructor(public cityName:string,
+  constructor(
+    public cityName:string,
     public countryName:string,
     public current_temp:number,
     public current_temp_min:number,
