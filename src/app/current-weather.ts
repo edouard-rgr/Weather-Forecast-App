@@ -1,5 +1,14 @@
 export class CurrentWeather {
 
+  constructor(public cityName:string,
+    public countryName:string,
+    public current_temp:number,
+    public current_temp_min:number,
+    public current_temp_max:number,
+    public img:string,
+    public current_description:string){}
+
+
   name : string;
 
   sys:{
@@ -17,10 +26,4 @@ export class CurrentWeather {
     description: string;
   }];
 
-  /*
-  coord: {
-    lon: number;
-    lat: number;
-  };
-  */
 }

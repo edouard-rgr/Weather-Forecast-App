@@ -22,8 +22,16 @@ export class CurrentComponent implements OnInit {
   getCurrentData(city: string = 'New York') {
     this.weatherservice.getCurrentWeather(city).subscribe
       (data => {
-        this.myWeather = data
-        console.log(data)
+        this.myWeather = new CurrentWeather(
+          data.name,
+          data.sys.country,
+          data.main.temp,
+          data.main.temp_min,
+          data.main.temp_max,
+          data.weather[0].icon,
+          data.weather[0].description)
+
+        console.log(this.myWeather)
       },
       (error) =>{
         'error'
@@ -34,8 +42,16 @@ export class CurrentComponent implements OnInit {
   onSubmit(weatherForm:NgForm){
     this.weatherservice.getCurrentWeather(weatherForm.value.city).subscribe
     (data => {
-      this.myWeather = data
-      console.log(data)
+      this.myWeather = new CurrentWeather(
+        data.name,
+        data.sys.country,
+        data.main.temp,
+        data.main.temp_min,
+        data.main.temp_max,
+        data.weather[0].icon,
+        data.weather[0].description)
+
+      console.log(this.myWeather)
     },
     (error) =>{
       'error'
@@ -52,9 +68,31 @@ export class CurrentComponent implements OnInit {
 }
 
 
+/*
 
+getCurrentData(city: string = 'New York') {
+  this.weatherservice.getCurrentWeather(city).subscribe
+    (data => {
+      this.myWeather = data
+      console.log(data)
+    },
+    (error) =>{
+      'error'
+    }
+    );
+}
 
-
-
+onSubmit(weatherForm:NgForm){
+  this.weatherservice.getCurrentWeather(weatherForm.value.city).subscribe
+  (data => {
+    this.myWeather = data
+    console.log(data)
+  },
+  (error) =>{
+    'error'
+  }
+  );
+}
+ */
 
 

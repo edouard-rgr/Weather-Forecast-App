@@ -1,13 +1,13 @@
 <div class="container">
-  <h1>{{myWeather?.name}}</h1>
-  <h1>{{myWeather?.sys.country}}</h1>
-  <h2>{{myWeather?.main.temp}}&deg;</h2>
+  <h1>{{myWeather?.cityName}}</h1>
+  <h1>{{myWeather?.countryName}}</h1>
+  <h2>{{myWeather?.current_temp}}&deg;</h2>
   <div class="img">
-    <img src="https://openweathermap.org/img/w/{{myWeather?.weather[0].icon}}.png">
+    <img src="https://openweathermap.org/img/w/{{myWeather?.img}}.png">
   </div>
-  <h4>Max: {{myWeather?.main.temp_min}}&deg;</h4>
-  <h4>Min: {{myWeather?.main.temp_max}}&deg;</h4>
-  <h3>{{myWeather?.weather[0].description}}</h3>
+  <h4>Max: {{myWeather?.current_temp_min}}&deg;</h4>
+  <h4>Min: {{myWeather?.current_temp_max}}&deg;</h4>
+  <h3>{{myWeather?.current_description}}</h3>
 </div>
 <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
   <input type="text" ngModel #city="ngModel" name="city" id="city" placeholder="Enter a city name">

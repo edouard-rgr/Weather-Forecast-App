@@ -1,8 +1,8 @@
 export class Forecast {
 
   constructor(public cityName:string,
-    public description:string,
-    public temp:number,
+    public forecast_description:string,
+    public forecast_temp:number,
     public date:string,
     public img:string){}
 
