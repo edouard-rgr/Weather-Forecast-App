@@ -21,43 +21,31 @@ export class ForecastComponent implements OnInit {
 
   constructor(private weatherservice:WeatherService) { }
 
-
-
-/*
-  getForecastData(city: string = 'New York') {
-    this.weatherservice.getForecastWeather(city).subscribe
-      (data => {
-        this.myWeather = data
-        console.log(data)
-      },
-      (error) =>{
-        'error'
-      }
-      );
-  }
-*/
-
 onSubmit(){
-  this.weatherservice.getForecastWeather(this.forecastForm.value.forecastCity).subscribe
+  this.weatherservice.getForecastWeatherByCity(this.forecastForm.value.forecastCity).subscribe
     (data => {
-      console.log(data);
       for(let i=0; i<data.list.length;i= i+8){
         this.forecastList = new Forecast(
           data.city.name,
           data.list[i].weather[0].description,
           data.list[i].main.temp,
           data.list[i].dt_txt,
-          data.list[i].weather[0].icon);
-        // console.log(forecastWeather);
+          data.list[i].weather[0].icon)
+
+        console.log(data);
+        //console.log(this.forecastList);
         this.forecast.push(this.forecastList);
       }
       console.log(this.forecast);
+      console.log(this.forecastForm)
       return this.forecast;
     },
     (error) =>{
       'error'
     }
   );
+
+
 
 
 }
@@ -74,3 +62,20 @@ onSubmit(){
 
 
 }
+
+
+/*
+
+    public cityName:string;
+    public description:string;
+    public temp:number;
+    public date:string;
+    public img:string;
+
+    this.cityName = data.city.name;
+    this.description = data.list[i].weather[0].description;
+    this.temp = data.list[i].main.temp;
+    this.date = data.list[i].dt_txt;
+    this.img = data.list[i].weather[0].icon;
+
+  */

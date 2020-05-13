@@ -1,11 +1,12 @@
 export class Forecast {
 
   constructor(
-    public cityName:string,
+    public forecast_city:string,
     public forecast_description:string,
     public forecast_temp:number,
-    public date:string,
-    public img:string){}
+    public forecast_date:string,
+    public forecast_icon:string){}
+
 
   city:{
     name: string

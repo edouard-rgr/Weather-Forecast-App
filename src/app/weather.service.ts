@@ -21,10 +21,17 @@ export class WeatherService {
 
   constructor(private http:HttpClient) { }
 
-  getCurrentWeather(city: string) : Observable<CurrentWeather> {
+  getCurrentWeather(city: string, state:string, country:string) : Observable<CurrentWeather> {
+    return this.http.get<CurrentWeather>(this.API_URL+'/weather?q=' + city +','+ state +','+ country +'&appid=' + this.API_KEY + '&units=imperial')}
+
+  getForecastWeather(city: string, state:string, country:string) : Observable<Forecast> {
+    return this.http.get<Forecast>(this.API_URL+'/forecast?q=' + city +','+ state +','+ country +'&appid=' + this.API_KEY + '&units=imperial')}
+
+
+  getCurrentWeatherByCity(city: string) : Observable<CurrentWeather> {
     return this.http.get<CurrentWeather>(this.API_URL+'/weather?q=' + city +'&appid=' + this.API_KEY + '&units=imperial')}
 
-  getForecastWeather(city: string) : Observable<Forecast> {
+  getForecastWeatherByCity(city: string) : Observable<Forecast> {
     return this.http.get<Forecast>(this.API_URL+'/forecast?q=' + city +'&appid=' + this.API_KEY + '&units=imperial')}
 
 }

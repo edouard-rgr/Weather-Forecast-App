@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="forecast" *ngFor="let dayWeather of forecast">
-    <h1 class="city">{{dayWeather.cityName}}</h1>
+    <h1 class="city">{{dayWeather.forecast_city}}</h1>
     <div class="day">
-      <h2 class="date">{{dayWeather.date | date: 'MMMMd'}}</h2>
-    <img src="https://openweathermap.org/img/w/{{dayWeather?.img}}.png">
+      <h2 class="date">{{dayWeather.forecast_date | date: 'MMMMd'}}</h2>
+    <img src="https://openweathermap.org/img/w/{{dayWeather.forecast_icon}}.png">
     <h2 class="description">{{dayWeather.forecast_description}}</h2>
     <h3 class="tempM">{{dayWeather.forecast_temp}}&deg;</h3>
   </div>

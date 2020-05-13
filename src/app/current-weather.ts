@@ -1,12 +1,12 @@
 export class CurrentWeather {
 
   constructor(
-    public cityName:string,
-    public countryName:string,
+    public current_city:string,
+    public current_country:string,
     public current_temp:number,
     public current_temp_min:number,
     public current_temp_max:number,
-    public img:string,
+    public current_icon:string,
     public current_description:string){}
 
 
@@ -26,5 +26,6 @@ export class CurrentWeather {
     icon: string;
     description: string;
   }];
+
 
 }

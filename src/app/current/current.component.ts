@@ -19,17 +19,17 @@ export class CurrentComponent implements OnInit {
   constructor(private weatherservice:WeatherService) { }
 
 
-  getCurrentData(city: string = 'New York') {
-    this.weatherservice.getCurrentWeather(city).subscribe
-      (data => {
-        this.myWeather = new CurrentWeather(
-          data.name,
-          data.sys.country,
-          data.main.temp,
-          data.main.temp_min,
-          data.main.temp_max,
-          data.weather[0].icon,
-          data.weather[0].description)
+  getCurrentData(city: string = 'Los Angeles', state: string='California', country: string = 'US') {
+    this.weatherservice.getCurrentWeather(city, state, country).subscribe
+    (data => {
+      this.myWeather = new CurrentWeather(
+        data.name,
+        data.sys.country,
+        data.main.temp,
+        data.main.temp_min,
+        data.main.temp_max,
+        data.weather[0].icon,
+        data.weather[0].description)
 
         console.log(this.myWeather)
       },
@@ -40,7 +40,7 @@ export class CurrentComponent implements OnInit {
   }
 
   onSubmit(weatherForm:NgForm){
-    this.weatherservice.getCurrentWeather(weatherForm.value.city).subscribe
+    this.weatherservice.getCurrentWeatherByCity(weatherForm.value.city).subscribe
     (data => {
       this.myWeather = new CurrentWeather(
         data.name,
@@ -52,6 +52,7 @@ export class CurrentComponent implements OnInit {
         data.weather[0].description)
 
       console.log(this.myWeather)
+      console.log(weatherForm)
     },
     (error) =>{
       'error'
@@ -93,6 +94,24 @@ onSubmit(weatherForm:NgForm){
   }
   );
 }
+
+
+    public cityName:string;
+    public countryName:string;
+    public temp:number;
+    public temp_min:number;
+    public temp_max:number;
+    public img:string;
+    public description:string;
+
+    this.cityName = data.name,
+    this.countryName = data.sys.country,
+    this.temp = data.main.temp,
+    this.temp_min = data.main.temp_min,
+    this.temp_max = data.main.temp_max,
+    this.img = data.weather[0].icon,
+    this.description = data.weather[0].description
+
  */
 
 

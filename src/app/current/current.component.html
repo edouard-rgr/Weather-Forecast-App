@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>{{myWeather?.cityName}}</h1>
-  <h1>{{myWeather?.countryName}}</h1>
+  <h1>{{myWeather?.current_city}}</h1>
+  <h1>{{myWeather?.current_country}}</h1>
   <h2>{{myWeather?.current_temp}}&deg;</h2>
   <div class="img">
-    <img src="https://openweathermap.org/img/w/{{myWeather?.img}}.png">
+    <img src="https://openweathermap.org/img/w/{{myWeather?.current_icon}}.png">
   </div>
   <h4>Max: {{myWeather?.current_temp_min}}&deg;</h4>
   <h4>Min: {{myWeather?.current_temp_max}}&deg;</h4>
