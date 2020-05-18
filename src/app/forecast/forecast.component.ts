@@ -56,7 +56,7 @@ onSubmit(){
 
   ngOnInit(): void {
     this.forecastForm = new FormGroup({
-      forecastCity: new FormControl('Seattle')
+      forecastCity: new FormControl('')
     })
     console.log(this.forecastForm);
 

@@ -39,6 +39,7 @@ export class CurrentComponent implements OnInit {
       );
   }
 
+
   onSubmit(weatherForm:NgForm){
     this.weatherservice.getCurrentWeatherByCity(weatherForm.value.city).subscribe
     (data => {
