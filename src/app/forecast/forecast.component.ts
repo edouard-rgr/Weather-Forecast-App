@@ -18,13 +18,25 @@ export class ForecastComponent implements OnInit {
   forecastList:Forecast;
   forecastForm: FormGroup;
 
+  valeur: number;
+
+  options = [
+    {key:"10", label:"2 days" },
+    {key:"20", label:"3 days" },
+    {key:"30", label:"4 days" },
+    {key:"40", label:"5 days" },
+    {key:"50", label:"6 days" },
+  ]
+
 
   constructor(private weatherservice:WeatherService) { }
+
+
 
 onSubmit(){
   this.weatherservice.getForecastWeatherByCity(this.forecastForm.value.forecastCity).subscribe
     (data => {
-      for(let i=0; i<data.list.length;i= i+8){
+      for(let i=0; i<this.valeur;i= i+8){
         this.forecastList = new Forecast(
           data.city.name,
           data.city.country,
@@ -48,6 +60,9 @@ onSubmit(){
     }
   );
 
+  this.valeur = this.forecastForm.get("nbForecast").value;
+  console.log(this.valeur);
+
 
 
 
@@ -56,8 +71,10 @@ onSubmit(){
 
   ngOnInit(): void {
     this.forecastForm = new FormGroup({
-      forecastCity: new FormControl('')
+      forecastCity: new FormControl('Austin'),
+      nbForecast: new FormControl(["10"])
     })
+
     console.log(this.forecastForm);
 
   }
@@ -84,3 +101,26 @@ onSubmit(){
     this.img = data.list[i].weather[0].icon;
 
   */
+
+
+
+    /*
+radios = document.getElementsByName('nbForecast');
+for(let i = 0; i < this.nbForecast.length; i++){
+ if(this.nbForecast[i].checked){
+ this.valeur = this.nbForecast[i].value;
+ }
+}
+
+for (let j=0;j<3;j++) {
+  if (document.forms.nbForecast[j].checked==true) {
+    number = document.forms.nbForecast[j].value;
+    Id = document.forms.nbForecast[j].id;
+    m=j;
+    select = document.getElementById("qt" );
+    qt = select.options[select.selectedIndex].value;
+    console.log("fruit=" + number + "            Id=" + Id + "           qt=" + qt);
+    break;
+  }
+}
+*/

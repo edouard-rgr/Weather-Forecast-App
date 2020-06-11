@@ -63,7 +63,7 @@ export class CurrentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getCurrentData()
+    this.getCurrentData("Austin")
 
   }
 

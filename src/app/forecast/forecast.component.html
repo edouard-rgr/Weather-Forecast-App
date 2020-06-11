@@ -29,10 +29,26 @@
       </div>
     </div>
     <blockquote class="blockquote text-center">
-    <form [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
-      <input type="text"  name="city" id="city" placeholder="Enter a city name" formControlName="forecastCity">
+
+    <form [formGroup]="forecastForm" (ngSubmit)="onSubmit() ; forecastForm.reset()">
+
+      <input type="text" name="forecast" id="forecast" placeholder="Enter a city name" formControlName="forecastCity">
       <button name="button" type ="submit">Enter</button>
-    </form>
+
+      <div class="mb-3">
+        <label>Forecast Days Number</label>
+
+        <div *ngFor="let choice of options">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="nbForecast" id="nbForecast" [value]="choice.key">
+            <label class="form-check-label">{{choice.label}}</label>
+          </div>
+        </div>
+
+      </div>
+
+     </form>
+
   </blockquote>
 
     <!-- Optional JavaScript -->
