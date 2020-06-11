@@ -21,11 +21,11 @@ export class ForecastComponent implements OnInit {
   valeur: number;
 
   options = [
-    {key:"10", label:"2 days" },
-    {key:"20", label:"3 days" },
-    {key:"30", label:"4 days" },
+    {key:"8", label:"1 day" },
+    {key:"16", label:"2 days" },
+    {key:"24", label:"3 days" },
+    {key:"32", label:"4 days" },
     {key:"40", label:"5 days" },
-    {key:"50", label:"6 days" },
   ]
 
 
@@ -36,6 +36,7 @@ export class ForecastComponent implements OnInit {
 onSubmit(){
   this.weatherservice.getForecastWeatherByCity(this.forecastForm.value.forecastCity).subscribe
     (data => {
+
       for(let i=0; i<this.valeur;i= i+8){
         this.forecastList = new Forecast(
           data.city.name,
@@ -60,8 +61,8 @@ onSubmit(){
     }
   );
 
+
   this.valeur = this.forecastForm.get("nbForecast").value;
-  console.log(this.valeur);
 
 
 
