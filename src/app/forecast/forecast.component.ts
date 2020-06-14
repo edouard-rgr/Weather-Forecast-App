@@ -21,11 +21,11 @@ export class ForecastComponent implements OnInit {
   valeur: number;
 
   options = [
-    {key:"8", label:"1 day" },
-    {key:"16", label:"2 days" },
-    {key:"24", label:"3 days" },
-    {key:"32", label:"4 days" },
-    {key:"40", label:"5 days" },
+    {key:"8", label:"1 " },
+    {key:"16", label:"2 " },
+    {key:"24", label:"3 " },
+    {key:"32", label:"4 " },
+    {key:"40", label:"5 " },
   ]
 
 
@@ -73,7 +73,7 @@ onSubmit(){
   ngOnInit(): void {
     this.forecastForm = new FormGroup({
       forecastCity: new FormControl('Austin'),
-      nbForecast: new FormControl(["10"])
+      nbForecast: new FormControl(["40"])
     })
 
     console.log(this.forecastForm);

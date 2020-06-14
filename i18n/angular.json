@@ -3,41 +3,29 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Weather-Forecast-App": {
+    "angular.io-example": {
       "projectType": "application",
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "locales": {
-          "fr": "src/locale/messages.fr.xlf",
-          "es": "src/locale/messages.es.xlf"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Weather-Forecast-App",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.slim.js",
-              "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -52,6 +40,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -68,22 +57,34 @@
                 }
               ]
             },
-            "fr":{
-              "localize":["fr"],
+            "production-fr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
               "aot": true,
-              "outputPath": "dist/Weather-Forecast-App/",
-              "i18nFile": "locale/messages.fr.xlf",
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "outputPath": "dist/my-project-fr/",
+              "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
             },
-            "es":{
-              "localize":["es"],
+            "fr": {
               "aot": true,
-              "outputPath": "dist/Weather-Forecast-App/",
-              "i18nFile": "locale/messages.es.xlf",
+              "outputPath": "dist/my-project-fr/",
+              "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "es",
+              "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
             }
           }
@@ -91,24 +92,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Weather-Forecast-App:build"
+            "browserTarget": "angular.io-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Weather-Forecast-App:build:production"
+              "browserTarget": "angular.io-example:build:production"
             },
-            "fr":{
-              "browserTarget": "Weather-Forecast-App:build:fr"
-            },
-            "es":{
-              "browserTarget": "Weather-Forecast-App:build:es"
+            "fr": {
+              "browserTarget": "angular.io-example:build:fr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Weather-Forecast-App:build"
+            "browserTarget": "angular.io-example:build"
           }
         },
         "test": {
@@ -145,19 +143,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Weather-Forecast-App:serve"
+            "devServerTarget": "angular.io-example:serve:fr"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Weather-Forecast-App:serve:production"
+              "devServerTarget": "angular.io-example:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Weather-Forecast-App",
-  "cli": {
-    "analytics": "fa266511-e69c-47ed-898e-ea01470f1f83"
-  }
+  "defaultProject": "angular.io-example"
 }

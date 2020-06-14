@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="headerTitle" datatype="html">
+        <source>Header</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appTitle" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Weather Forecast App<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerCurrent" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Current Weather<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerForecast" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Forecast<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="currentTitle" datatype="html">
+        <source>Current</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/current/current.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="&lt;currentSearchBar&gt;" datatype="html">
+        <source>Enter a city name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/current/current.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="currentButton" datatype="html">
+        <source>Enter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/current/current.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="currentDescription" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{myWeather?.current_description}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/current/current.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forecastTitle" datatype="html">
+        <source>Forecast</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forecastDescription" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{dayWeather.forecast_description}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="&lt;forecastSearchBar&gt;" datatype="html">
+        <source>Enter a city name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forecastButton" datatype="html">
+        <source>Enter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forecastDaysLabel" datatype="html">
+        <source>Forecast Days Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forecastDaysRadios" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{choice.label}}"/> days</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forecast/forecast.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

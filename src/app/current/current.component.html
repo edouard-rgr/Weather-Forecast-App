@@ -8,24 +8,29 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Current</title>
+    <title i18n="@@currentTitle">Current</title>
   </head>
   <body>
-    <div class="container">
-      <h1>{{myWeather?.current_city}}</h1>
-      <h1>{{myWeather?.current_country}}</h1>
-      <h2>{{myWeather?.current_temp}}&deg;</h2>
-      <div class="img">
-        <img src="https://openweathermap.org/img/w/{{myWeather?.current_icon}}.png">
+    <br>
+    <div class="text-center">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+        <input type="text" ngModel #city="ngModel" name="city" id="city" placeholder="Enter a city name" i18n-placeholder="@@<currentSearchBar>">
+        <button class="btn btn-primary" name="button" type ="submit" i18n="@@currentButton">Enter</button>
+      </form>
+
+      <div class="container">
+        <h1>{{myWeather?.current_city}}</h1>
+        <h1>{{myWeather?.current_country}}</h1>
+        <h2>{{myWeather?.current_temp}}&deg;</h2>
+        <div class="img">
+          <img src="https://openweathermap.org/img/w/{{myWeather?.current_icon}}.png">
+        </div>
+        <h4>Min: {{myWeather?.current_temp_min}}&deg;</h4>
+        <h4>Max: {{myWeather?.current_temp_max}}&deg;</h4>
+        <h3 i18n="@@currentDescription">{{myWeather?.current_description}}</h3>
       </div>
-      <h4>Min: {{myWeather?.current_temp_min}}&deg;</h4>
-      <h4>Max: {{myWeather?.current_temp_max}}&deg;</h4>
-      <h3>{{myWeather?.current_description}}</h3>
     </div>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
-      <input type="text" ngModel #city="ngModel" name="city" id="city" placeholder="Enter a city name">
-      <button name="button" type ="submit">Enter</button>
-    </form>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

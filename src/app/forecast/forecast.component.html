@@ -8,48 +8,49 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Forecast</title>
+    <title i18n="@@forecastTitle">Forecast</title>
   </head>
   <body>
-
+    <br>
     <div class="container">
       <div class="row">
         <div *ngFor="let dayWeather of forecast">
           <h1 class="city">{{dayWeather.forecast_city}}</h1>
           <h1 class="country">{{dayWeather.forecast_country}}</h1>
           <div class="day">
-          <h2 class="date">{{dayWeather.forecast_date | date: 'MMMMd'}}</h2>
-          <h2 class="temp">{{dayWeather.forecast_temp}}&deg;</h2>
-          <h2 class="tempmin">Min :{{dayWeather.forecast_temp_min}}&deg;</h2>
-          <h2 class="tempmax">Max :{{dayWeather.forecast_temp_max}}&deg;</h2>
-          <img src="https://openweathermap.org/img/w/{{dayWeather.forecast_icon}}.png">
-          <h3 class="description">{{dayWeather.forecast_description}}</h3>
+            <h2 class="date">{{dayWeather.forecast_date | date: 'MMMMd'}}</h2>
+            <h2 class="temp">{{dayWeather.forecast_temp}}&deg;</h2>
+            <h2 class="tempmin">Min :{{dayWeather.forecast_temp_min}}&deg;</h2>
+            <h2 class="tempmax">Max :{{dayWeather.forecast_temp_max}}&deg;</h2>
+            <img src="https://openweathermap.org/img/w/{{dayWeather.forecast_icon}}.png">
+            <h3 class="description" i18n="@@forecastDescription">{{dayWeather.forecast_description}}</h3>
           </div>
         </div>
       </div>
     </div>
-    <blockquote class="blockquote text-center">
 
-    <form [formGroup]="forecastForm" (ngSubmit)="onSubmit() ; forecastForm.reset()">
+    <div class="text-center">
 
-      <input type="text" name="forecast" id="forecast" placeholder="Enter a city name" formControlName="forecastCity">
-      <button name="button" type ="submit">Enter</button>
+      <form [formGroup]="forecastForm" (ngSubmit)="onSubmit() ; forecastForm.reset()">
 
-      <div class="mb-3">
-        <label>Forecast Days Number</label>
+        <input type="text" name="forecast" id="forecast" placeholder="Enter a city name" formControlName="forecastCity" i18n-placeholder="@@<forecastSearchBar>">
+        <button class="btn btn-primary" name="button" type ="submit" i18n="@@forecastButton">Enter</button>
 
-        <div *ngFor="let choice of options">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" formControlName="nbForecast" id="nbForecast" [value]="choice.key">
-            <label class="form-check-label">{{choice.label}}</label>
+        <div class="mb-3">
+          <label i18n="@@forecastDaysLabel">Forecast Days Number</label>
+
+          <div *ngFor="let choice of options">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="nbForecast" id="nbForecast" [value]="choice.key">
+              <label class="form-check-label" i18n="@@forecastDaysRadios">{{choice.label}} days</label>
+            </div>
           </div>
+
         </div>
 
-      </div>
+      </form>
 
-     </form>
-
-  </blockquote>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
