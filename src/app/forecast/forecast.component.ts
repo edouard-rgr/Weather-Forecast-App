@@ -14,12 +14,14 @@ import { Forecast } from '../forecast';
 })
 export class ForecastComponent implements OnInit {
 
+  //variable declaration
   forecast:Forecast[] = [];
   forecastList:Forecast;
   forecastForm: FormGroup;
 
   valeur: number;
 
+  //list of keys associated with the values corresponding to the number of forecast days
   options = [
     {key:"8", label:"1 " },
     {key:"16", label:"2 " },
@@ -29,16 +31,15 @@ export class ForecastComponent implements OnInit {
   ]
 
 
-  constructor(private weatherservice:WeatherService) { }
+  constructor(private weatherservice:WeatherService) { } //use of api data from the web service in the constructor
 
 
 
-onSubmit(){
-  this.weatherservice.getForecastWeatherByCity(this.forecastForm.value.forecastCity).subscribe
-    (data => {
-
-      for(let i=0; i<this.valeur;i= i+8){
-        this.forecastList = new Forecast(
+onSubmit(){ //function associated with our button
+  this.weatherservice.getForecastWeatherByCity(this.forecastForm.value.forecastCity).subscribe //we use the web service with the value of the city name associated to our functions and we use subscribe
+    (data => { //we're going to combine the data we're interested in
+      for(let i=0; i<this.valeur;i= i+8){  //we make a loop in order to return the forecasts for different dates.
+        this.forecastList = new Forecast( //we define a list of forecast values according to the imported class "Forecast"
           data.city.name,
           data.city.country,
           data.list[i].dt_txt,
@@ -48,13 +49,13 @@ onSubmit(){
           data.list[i].weather[0].icon,
           data.list[i].weather[0].description)
 
-        console.log(data);
+        console.log(data); //display of data in the console
         //console.log(this.forecastList);
-        this.forecast.push(this.forecastList);
+        this.forecast.push(this.forecastList); //we push our data list into a list variable
       }
-      console.log(this.forecast);
+      console.log(this.forecast); //display of forecast variable in the console
       console.log(this.forecastForm)
-      return this.forecast;
+      return this.forecast; // we return our forecast variable
     },
     (error) =>{
       'error'
@@ -62,9 +63,7 @@ onSubmit(){
   );
 
 
-  this.valeur = this.forecastForm.get("nbForecast").value;
-
-
+  this.valeur = this.forecastForm.get("nbForecast").value; //associates to a variable the number of forecast days to be inserted in our loop
 
 
 }
@@ -72,8 +71,8 @@ onSubmit(){
 
   ngOnInit(): void {
     this.forecastForm = new FormGroup({
-      forecastCity: new FormControl('Austin'),
-      nbForecast: new FormControl(["40"])
+      forecastCity: new FormControl('Austin'), //sets the name of the city to a default value
+      nbForecast: new FormControl(["40"]) //sets the number forecast days to a default value
     })
 
     console.log(this.forecastForm);
@@ -104,24 +103,3 @@ onSubmit(){
   */
 
 
-
-    /*
-radios = document.getElementsByName('nbForecast');
-for(let i = 0; i < this.nbForecast.length; i++){
- if(this.nbForecast[i].checked){
- this.valeur = this.nbForecast[i].value;
- }
-}
-
-for (let j=0;j<3;j++) {
-  if (document.forms.nbForecast[j].checked==true) {
-    number = document.forms.nbForecast[j].value;
-    Id = document.forms.nbForecast[j].id;
-    m=j;
-    select = document.getElementById("qt" );
-    qt = select.options[select.selectedIndex].value;
-    console.log("fruit=" + number + "            Id=" + Id + "           qt=" + qt);
-    break;
-  }
-}
-*/
