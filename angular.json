@@ -68,8 +68,10 @@
                 }
               ]
             },
-            "fr":{
-              "localize":["fr"],
+            "fr": {
+              "localize": [
+                "fr"
+              ],
               "aot": true,
               "outputPath": "dist/Weather-Forecast-App/",
               "i18nFile": "locale/messages.fr.xlf",
@@ -77,8 +79,10 @@
               "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
             },
-            "es":{
-              "localize":["es"],
+            "es": {
+              "localize": [
+                "es"
+              ],
               "aot": true,
               "outputPath": "dist/Weather-Forecast-App/",
               "i18nFile": "locale/messages.es.xlf",
@@ -97,10 +101,10 @@
             "production": {
               "browserTarget": "Weather-Forecast-App:build:production"
             },
-            "fr":{
+            "fr": {
               "browserTarget": "Weather-Forecast-App:build:fr"
             },
-            "es":{
+            "es": {
               "browserTarget": "Weather-Forecast-App:build:es"
             }
           }
@@ -152,6 +156,10 @@
               "devServerTarget": "Weather-Forecast-App:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
